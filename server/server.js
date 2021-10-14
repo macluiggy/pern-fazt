@@ -4,6 +4,8 @@ import { MongoClient } from 'mongodb'
 import template from './../template'
 //comment out before building for production
 import devBundle from './devBundle'
+import dotenv from 'dotenv'
+dotenv.config()
 
 const app = express()
 //comment out before building for production
