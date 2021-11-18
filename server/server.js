@@ -33,3 +33,4 @@ MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true },(er
   console.log("Connected successfully to mongodb server")
   db.close()
 })
+ export default app
