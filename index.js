@@ -1,1 +1,1 @@
-import "./server/server.js"
+require('./dist/server.generated.js')
