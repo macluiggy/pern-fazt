@@ -12,7 +12,7 @@ const app = express()
 //comment out before building for production
 //devBundle.compile(app)
 let production = false
-const CURRENT_WORKING_DIR = production ? __dirname : process.cwd() // 
+const CURRENT_WORKING_DIR = process.cwd() // 
 let dir = path.join(CURRENT_WORKING_DIR, 'dist', 'index.html')
 console.log(dir);
 app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist', 'index.html')))
