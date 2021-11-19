@@ -17,7 +17,7 @@ app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist')))
 app.get('/', (req, res) => {
   res.status(200).send(template())
 })
-app.get('/api/hello', (req, res) => {
+app.get('/api/hello', (_, res) => {
   res.json({hello: 'world, jajja'})
 })
 let port = process.env.PORT || 3000
