@@ -10,13 +10,14 @@ dotenv.config()
 const app = express()
 //comment out before building for production
 //devBundle.compile(app)
-
-const CURRENT_WORKING_DIR = process.cwd()
-app.use(express.static(path.join(CURRENT_WORKING_DIR, 'dist')))
+let production = !false
+const CURRENT_WORKING_DIR = production ? __dirname : process.cwd() // 
+app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist')))
 
 app.get('/', (req, res) => {
   res.status(200).send(template())
 })
+
 app.get('/api/hello', (_, res) => {
   res.json({hello: 'world, jajja'})
 })
