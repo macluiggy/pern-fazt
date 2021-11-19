@@ -19,7 +19,7 @@ app.use('/dist', express.static(dir))
 console.log(root, 'djjdjdjd');
 // app.get('/', function(req, res) {
 //   res.sendFile(dir);
-// })
+// }) 
 app.get('/', (req, res) => {
   res.status(200).send(template())
 })
