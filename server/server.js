@@ -11,7 +11,7 @@ const app = express()
 //comment out before building for production
 //devBundle.compile(app)
 
-const CURRENT_WORKING_DIR = __dirname || process.cwd()
+const CURRENT_WORKING_DIR = process.cwd()
 app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist')))
 
 app.get('/', (req, res) => {
