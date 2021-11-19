@@ -1,5 +1,5 @@
 const path = require('path')
-const CURRENT_WORKING_DIR = process.cwd()
+const CURRENT_WORKING_DIR = __dirname || process.cwd()
 
 const config = {
     mode: "production",
