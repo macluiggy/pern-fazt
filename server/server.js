@@ -2,6 +2,7 @@ import path from 'path'
 import express from 'express'
 import { MongoClient } from 'mongodb'
 import template from './../template'
+import { root } from '../root'
 //comment out before building for production
 //import devBundle from './devBundle'
 import dotenv from 'dotenv'
@@ -10,10 +11,15 @@ dotenv.config()
 const app = express()
 //comment out before building for production
 //devBundle.compile(app)
-let production = !false
-const CURRENT_WORKING_DIR = production ? __dirname : process.cwd() // 
-app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist')))
-
+let production = false
+const CURRENT_WORKING_DIR = process.cwd() // 
+let dir = path.join(CURRENT_WORKING_DIR, 'dist')
+console.log(dir);
+app.use('/dist', express.static(dir))
+console.log(root, 'djjdjdjd');
+// app.get('/', function(req, res) {
+//   res.sendFile(dir);
+// })
 app.get('/', (req, res) => {
   res.status(200).send(template())
 })
