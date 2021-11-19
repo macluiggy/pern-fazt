@@ -13,9 +13,9 @@ const app = express()
 //devBundle.compile(app)
 let production = false
 const CURRENT_WORKING_DIR = process.cwd() // 
-let dir = path.join(CURRENT_WORKING_DIR, 'dist', 'index.html')
+let dir = path.join(CURRENT_WORKING_DIR, 'dist')
 console.log(dir);
-app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist', 'index.html')))
+app.use('/dist', express.static(dir))
 console.log(root, 'djjdjdjd');
 // app.get('/', function(req, res) {
 //   res.sendFile(dir);
