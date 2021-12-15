@@ -35,7 +35,7 @@
     "react-hot-loader": "4.12.20"
   },
   "engines": {
-    "node": ">=8.0.0"
+    "node": "14.x"
   },
   "devDependencies": {
     "@babel/core": "7.9.0",
