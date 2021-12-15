@@ -49,8 +49,15 @@ const isProduction = process.env.NODE_ENV === "production";
 const connectionString = `postgresql://${process.env.PG_USER}:${process.env.PG_PASSWORD}@${process.env.PG_HOST}:${process.env.PG_PORT}/${process.env.PG_DATABASE}`;
 const pool = new Pool({
   connectionString: isProduction ? process.env.DATABASE_URL : connectionString,
-  ssl: {
-    rejectUnauthorized: false,
-  },
+  //comentar esta parte en mode development
+  // ssl: {
+  //   rejectUnauthorized: false,
+  // },
 });
 module.exports = pool;
+
+/*
+para añadir una nueva tabla a la base de datos, se debe ejecutar el siguiente comando en la terminal:
+heroku pg:psql postgresql-curved-28407 --app tasks-pern-app (o el nombe de la app)
+luego usa los comendos SQL para crear la tabla u cualquier cosa que quieras hacer en la base de datos
+*/

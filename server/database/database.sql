@@ -6,5 +6,4 @@ CREATE TABLE users (
 );
 
 INSERT INTO users (name) VALUES
-    ('luiggy'),
-    ('batman');
+    ('spiderman');
