@@ -1,12 +1,10 @@
 import { Pool } from "pg";
 import dotenv from "dotenv";
-dotenv.config();
-
 export var pool = new Pool({
-  user: process.env.USER,
-  host: process.env.HOST,
+  user: "postgres",
+  host: "localhost",
   password: "",
-  database: process.env.DATABASE,
+  database: "tasks_pern",
   port: 5432,
 });
 
