@@ -19,7 +19,6 @@
   "main": "template.js",
   "scripts": {
     "start": "node dist/server.generated.js",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install npm && run build",
     "dev": "nodemon",
     "build": "webpack --config webpack.config.client.production.js && webpack --mode=production --config webpack.config.server.js",
     "start2": "NODE_ENV=production node ./dist/server.generated.js"
