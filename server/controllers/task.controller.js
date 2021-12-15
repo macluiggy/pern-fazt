@@ -7,5 +7,6 @@ export const test = async (req, res) => {
     res.json(response.rows);
   } catch (error) {
     console.log(error);
+    res.json({ message: error.message });
   }
 };
