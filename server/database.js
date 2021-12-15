@@ -2,10 +2,10 @@ import { Pool } from "pg";
 import dotenv from "dotenv";
 
 export var pool = new Pool({
-  user: process.env.USER || "postgres",
-  host: process.env.HOST || "localhost",
+  user: process.env.USER,
+  host: process.env.HOST,
   password: "",
-  database: process.env.DATABASE || "tasks_pern",
+  database: process.env.DATABASE,
   port: 5432,
 });
 
