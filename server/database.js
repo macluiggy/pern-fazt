@@ -4,6 +4,8 @@ export var pool = new Pool({
   user: "postgres",
   host: "localhost",
   password: "",
-  database: "first_pern_database",
+  database: "tasks_pern",
   port: 5432,
 });
+
+export default pool;

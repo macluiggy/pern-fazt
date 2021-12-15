@@ -1,8 +1,6 @@
 import { Router } from "express";
 const router = Router();
-
-router.route("/").get((req, res) => {
-  res.send("Hello World");
-});
+import { test } from "../controllers/task.controller";
+router.route("/").get(test);
 
 export default router;
