@@ -8,6 +8,7 @@ import dotenv from "dotenv";
 dotenv.config();
 // routes
 import indexRoutes from "./routes/index.route";
+import taskRoutes from "./routes/task.routes";
 
 const app = express();
 //comment out before building for production
@@ -27,6 +28,7 @@ app.get("/api/hello", (_, res) => {
   res.json({ hello: "world, jajjaddd" });
 });
 app.use("/api", indexRoutes);
+app.use("/api", taskRoutes);
 
 let port = process.env.PORT || 3000;
 app.listen(port, function onStart(err) {
