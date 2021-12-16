@@ -83,7 +83,7 @@ export const udpateTask = async (req, res, next) => {
   } catch (error) {
     console.log(error);
     if (process.env.NODE_ENV !== "production") return next(error);
-    res.json({ Error: "Title task already exists in other task" });
+    return res.json({ Error: "Title task already exists in other task" });
   }
 };
 
