@@ -27,13 +27,19 @@ export const getAllTasks = async (req, res) => {
 
 export const getTask = async (req, res) => {
   // res.send("Hello from tasks");
+  const { id } = req.params;
   try {
-    const result = await pool.query("SELECT NOW()");
+    const result = await pool.query("SELECT * FROM tasks WHERE id = $1", [id]);
     console.log(result);
-    res.json(result.rows[0].now);
+    if (!result.rows.length) return res.status(404).json("Task not found");
+    return res.status(200).json(result.rows);
   } catch (error) {
     console.log(error);
-    res.json({ message: error.message });
+    const errMessage =
+      process.env.NODE_ENV === "production"
+        ? "Server error (500)... Please try again later"
+        : error.message;
+    return res.json({ Error: errMessage });
   }
 };
 
@@ -62,24 +68,46 @@ export const createTask = async (req, res) => {
 
 export const udpateTask = async (req, res) => {
   // res.send("Hello from tasks");
+  const { id } = req.params;
+  const { title, description } = req.body;
   try {
-    const result = await pool.query("SELECT NOW()");
+    const result = await pool.query(
+      "UPDATE tasks SET title = $1, description = $2 WHERE id = $3 RETURNING *",
+      [title, description, id]
+    );
     console.log(result);
-    res.json(result.rows[0].now);
+    if (!result.rowCount) return res.status(404).json("Task not found");
+    return res
+      .status(200)
+      .json({ message: "Task updated successfully", body: result.rows[0] });
   } catch (error) {
     console.log(error);
-    res.json({ message: error.message });
+    const errMessage =
+      process.env.NODE_ENV === "production"
+        ? "Title task already exists in other task"
+        : error.message;
+    res.json({ Error: errMessage });
   }
 };
 
 export const deeleteTask = async (req, res) => {
   // res.send("Hello from tasks");
+  const { id } = req.params;
   try {
-    const result = await pool.query("SELECT NOW()");
+    const result = await pool.query(
+      "DELETE FROM tasks WHERE id = $1 RETURNING *",
+      [id]
+    );
     console.log(result);
-    res.json(result.rows[0].now);
+    if (!result.rowCount) return res.status(404).json("Task not found");
+    // return res.status(200).json({ "user deleted": result.rows[0] });
+    return res.sendStatus(204); // 204 = no content, no data to return to client (no content), but the request was successful (no error) (https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) (https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/204)
   } catch (error) {
     console.log(error);
-    res.json({ message: error.message });
+    const errMessage =
+      process.env.NODE_ENV === "production"
+        ? "Server error (500)... Please try again later"
+        : error.message;
+    res.json({ Error: errMessage });
   }
 };

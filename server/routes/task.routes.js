@@ -12,6 +12,6 @@ import {
 router.route("/").get(test);
 router.route("/tasks").get(getAllTasks).post(createTask);
 
-router.route("/tasks/:id");
+router.route("/tasks/:id").get(getTask).put(udpateTask).delete(deeleteTask);
 
 export default router;
