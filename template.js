@@ -13,7 +13,7 @@ export default () => {
           />
           <title>MERN Kickstart</title>
         </head>
-        <body>
+        <body style='background-color: #2d3436;'>
           <div id="root"></div>
           <script type="text/javascript" src="/dist/bundle.js"></script>
         </body>

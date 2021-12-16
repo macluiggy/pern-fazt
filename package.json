@@ -38,8 +38,7 @@
     "react": "17.0.2",
     "react-dom": "16.13.1",
     "react-hot-loader": "4.12.20",
-    "react-router-dom": "^6.1.1",
-    "sass": "^1.45.0"
+    "react-router-dom": "^6.1.1"
   },
   "engines": {
     "node": "14.x"
@@ -50,6 +49,8 @@
     "@babel/preset-react": "7.9.4",
     "babel-loader": "8.1.0",
     "nodemon": "2.0.2",
+    "sass": "^1.45.0",
+    "sass-loader": "^12.4.0",
     "webpack": "4.42.1",
     "webpack-cli": "3.3.11",
     "webpack-dev-middleware": "3.7.2",
