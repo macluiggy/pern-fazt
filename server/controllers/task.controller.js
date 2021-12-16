@@ -1,6 +1,5 @@
 import pool from "../database";
 import dotenv from "dotenv";
-import { response } from "express";
 dotenv.config();
 export const test = async (req, res) => {
   // res.send("Hello World");
@@ -47,7 +46,10 @@ export const createTask = async (req, res) => {
       [title, description]
     );
     console.log(result);
-    res.json(response.rows[0]);
+    res.json({
+      message: "Task created successfully",
+      body: { title, description },
+    });
   } catch (error) {
     console.log(error);
     res.json({ Error: error.message });
