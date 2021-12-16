@@ -62,3 +62,12 @@ var pool = new Pool({
   },
 });
 module.exports = pool;
+
+// make a pool connection to the database
+const pool2 = new Pool({
+  user: "postgres",
+  host: "localhost",
+  password: "",
+  database: "tasks_pern",
+  port: 5432,
+});
