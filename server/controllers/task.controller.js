@@ -54,7 +54,7 @@ export const createTask = async (req, res) => {
     console.log(error);
     const errMessage =
       process.env.NODE_ENV === "production"
-        ? "Server error (500)"
+        ? "Server error (500)... Please try again later"
         : error.message;
     res.json({ Error: errMessage });
   }

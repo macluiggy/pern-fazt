@@ -4,7 +4,7 @@ import morgan from "morgan";
 import { MongoClient } from "mongodb";
 import template from "./../template";
 //comment out before building for production
-// import devBundle from "./devBundle";
+import devBundle from "./devBundle";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -14,7 +14,7 @@ import taskRoutes from "./routes/task.routes";
 
 const app = express();
 //comment out before building for production
-// devBundle.compile(app);
+devBundle.compile(app);
 const CURRENT_WORKING_DIR = process.cwd(); //
 let dir = path.join(CURRENT_WORKING_DIR, "dist");
 console.log(dir);
