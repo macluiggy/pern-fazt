@@ -1,11 +1,13 @@
 import path from "path";
 import express from "express";
+import morgan from "morgan";
 import { MongoClient } from "mongodb";
 import template from "./../template";
 //comment out before building for production
 // import devBundle from "./devBundle";
 import dotenv from "dotenv";
 dotenv.config();
+
 // routes
 import indexRoutes from "./routes/index.route";
 import taskRoutes from "./routes/task.routes";
@@ -27,6 +29,12 @@ app.get("/", (req, res) => {
 app.get("/api/hello", (_, res) => {
   res.json({ hello: "world, jajjaddd" });
 });
+
+// middlewares
+app.use(express.json());
+app.use(morgan("dev"));
+
+//using routes
 app.use("/api", indexRoutes);
 app.use("/api", taskRoutes);
 

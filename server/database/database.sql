@@ -17,3 +17,6 @@ CREATE TABLE tasks (
   description VARCHAR(255) NOT NULL,
   status VARCHAR(40)
 );
+
+--devuelve la fecha actual
+SELECT NOW();
