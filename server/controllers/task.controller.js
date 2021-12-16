@@ -66,7 +66,7 @@ export const createTask = async (req, res) => {
   }
 };
 
-export const udpateTask = async (req, res) => {
+export const udpateTask = async (req, res, next) => {
   // res.send("Hello from tasks");
   const { id } = req.params;
   const { title, description } = req.body;
@@ -82,11 +82,8 @@ export const udpateTask = async (req, res) => {
       .json({ message: "Task updated successfully", body: result.rows[0] });
   } catch (error) {
     console.log(error);
-    const errMessage =
-      process.env.NODE_ENV === "production"
-        ? "Title task already exists in other task"
-        : error.message;
-    res.json({ Error: errMessage });
+    if (process.env.NODE_ENV !== "production") return next(error);
+    res.json({ Error: "Title task already exists in other task" });
   }
 };
 

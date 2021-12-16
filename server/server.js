@@ -33,6 +33,9 @@ app.get("/api/hello", (_, res) => {
 // middlewares
 app.use(express.json());
 app.use(morgan("dev"));
+app.use((err, req, res, next) => {
+  return res.status(500).json({ message: err.message });
+});
 
 //using routes
 app.use("/api", indexRoutes);
