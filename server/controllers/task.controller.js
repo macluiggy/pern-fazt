@@ -42,7 +42,7 @@ export const createTask = async (req, res) => {
   const { title, description } = req.body;
   try {
     const result = await pool.query(
-      "INSERT INTO tasks (title, description) VALUES ($1, $2) RETURNING *",
+      "INSERT INTO tasks (title, description) VALUES ($1, $2) RETURNING *;",
       [title, description]
     );
     console.log(result);
@@ -52,7 +52,11 @@ export const createTask = async (req, res) => {
     });
   } catch (error) {
     console.log(error);
-    res.json({ Error: error.message });
+    const errMessage =
+      process.env.NODE_ENV === "production"
+        ? "Server error (500)"
+        : error.message;
+    res.json({ Error: errMessage });
   }
 };
 
