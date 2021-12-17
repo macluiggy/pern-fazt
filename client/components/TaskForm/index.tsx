@@ -20,18 +20,24 @@ function TaskForm() {
     e.preventDefault();
     // console.log("submit");
     // console.log(task);
-    setLoading(true);
-    const response = await fetch("/api/tasks", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(task),
-    });
-    const data = await response.json();
-    console.log(data);
-    setLoading(false);
-    navigate("/");
+    try {
+      setLoading(true);
+      const response = await fetch("/api/tasks", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(task),
+      });
+      const data = await response.json();
+      console.log(data);
+      setLoading(false);
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+      alert("Title already exists");
+      navigate("/");
+    }
   };
   const handleChange = (e) => {
     const { name, value } = e.target;
