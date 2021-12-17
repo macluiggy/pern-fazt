@@ -3,7 +3,7 @@ import { hot } from "react-hot-loader";
 import { BrowserRouter, Link, Route, Router, Routes } from "react-router-dom";
 import { Container } from "@mui/material";
 // components
-import TaskForm from "./components/TaskForm/index.tsx";
+import TaskForm from "./components/TaskForm/";
 import Menu from "./components/Navbar";
 import TaskList from "./components/TaskList";
 
