@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./taskform.scss";
 import {
   Grid,
@@ -10,6 +10,10 @@ import {
 } from "@mui/material";
 
 function TaskForm() {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("submit");
+  };
   return (
     <Grid
       container
@@ -18,12 +22,18 @@ function TaskForm() {
       justifyContent="center"
     >
       <Grid item xs={3}>
-        <Card sx={{ mt: 5 }}>
+        <Card
+          sx={{ mt: 5 }}
+          style={{
+            backgroundColor: "#1e272e",
+            padding: "1rem",
+          }}
+        >
           <Typography variant="h5" textAlign="center" color="white">
             Create Task
           </Typography>
           <CardContent>
-            <form>
+            <form onSubmit={handleSubmit}>
               <TextField
                 variant="filled"
                 label="Write your title"
@@ -31,6 +41,8 @@ function TaskForm() {
                   display: "block",
                   margin: ".5rem 0",
                 }}
+                inputProps={{ style: { color: "white" } }}
+                InputLabelProps={{ style: { color: "white" } }}
               />
               <TextField
                 variant="filled"
@@ -41,6 +53,8 @@ function TaskForm() {
                   display: "block",
                   margin: ".5rem 0",
                 }}
+                inputProps={{ style: { color: "white" } }}
+                InputLabelProps={{ style: { color: "white" } }}
               />
 
               <Button variant="contained" color="primary" type="submit">

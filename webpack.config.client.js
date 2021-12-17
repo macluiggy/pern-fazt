@@ -2,6 +2,39 @@ const path = require("path");
 const webpack = require("webpack");
 const CURRENT_WORKING_DIR = process.cwd();
 
+//rules
+const rulesForJavaScript = {
+  test: /\.jsx?$/,
+  exclude: /node_modules/,
+  use: ["babel-loader"],
+  // use: {
+  //   loader: "babel-loader",
+  //   options: {
+  //     presets: [["@babel/preset-react", { runtime: "automatic" }]],
+  //   },
+  // },
+  // loader: "babel-loader",
+  // options: {
+  //   presets: [
+  //     [
+  //       "@babel/preset-react",
+  //       {
+  //         runtime: "automatic",
+  //       },
+  //     ],
+  //   ],
+  // },
+};
+const rulesForCSS = {
+  test: /\.s[ac]ss$/i,
+  use: ["style-loader", "css-loader", "sass-loader"],
+};
+const rulesForTypeScript = {
+  test: /\.tsx?$/,
+  use: "ts-loader",
+  exclude: /node_modules/,
+};
+
 const config = {
   name: "browser",
   mode: "development",
@@ -16,23 +49,7 @@ const config = {
     publicPath: "/dist/",
   },
   module: {
-    rules: [
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        use: ["babel-loader"],
-      },
-      {
-        test: /\.s[ac]ss$/i,
-        use: ["style-loader", "css-loader", "sass-loader"],
-      },
-      //rules for typescript
-      {
-        test: /\.tsx?$/,
-        use: "ts-loader",
-        exclude: /node_modules/,
-      },
-    ],
+    rules: [rulesForJavaScript, rulesForCSS, rulesForTypeScript],
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
