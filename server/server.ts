@@ -3,7 +3,7 @@ import express from "express";
 import morgan from "morgan";
 // import cors from "cors";
 // import { MongoClient } from "mongodb";
-import template from "./../template";
+import template from "../template.js";
 //comment out before building for production
 // import devBundle from "./devBundle";
 import dotenv from "dotenv";
@@ -44,10 +44,7 @@ app.use("/api", indexRoutes);
 app.use("/api", taskRoutes);
 
 let port = process.env.PORT || 3000;
-app.listen(port, function onStart(err) {
-  if (err) {
-    console.log(err);
-  }
+app.listen(port, () => {
   console.info("Server started on port %s.", port);
 });
 

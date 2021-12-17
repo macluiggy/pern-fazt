@@ -1,7 +1,7 @@
 import pool from "../database";
 import dotenv from "dotenv";
 dotenv.config();
-export const test = async (req, res) => {
+export const test = async (req, res, next) => {
   // res.send("Hello World");
   try {
     const response = await pool.query("SELECT * FROM users");
@@ -16,7 +16,7 @@ export const test = async (req, res) => {
   }
 };
 
-export const getAllTasks = async (req, res) => {
+export const getAllTasks = async (req, res, next) => {
   // res.send("Hello from tasks");
   try {
     const result = await pool.query("SELECT * FROM tasks");
@@ -31,7 +31,7 @@ export const getAllTasks = async (req, res) => {
   }
 };
 
-export const getTask = async (req, res) => {
+export const getTask = async (req, res, next) => {
   // res.send("Hello from tasks");
   const { id } = req.params;
   try {
@@ -99,7 +99,7 @@ export const udpateTask = async (req, res, next) => {
   }
 };
 
-export const deeleteTask = async (req, res) => {
+export const deeleteTask = async (req, res, next) => {
   // res.send("Hello from tasks");
   const { id } = req.params;
   try {
