@@ -18,7 +18,7 @@ const rulesForTypeScript = {
 
 const config = {
   mode: "production",
-  entry: [path.join(CURRENT_WORKING_DIR, "client/main.tsx")],
+  entry: [path.join(CURRENT_WORKING_DIR, "client/main.js")],
   output: {
     path: path.join(CURRENT_WORKING_DIR, "/dist"),
     filename: "bundle.js",
