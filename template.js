@@ -11,6 +11,12 @@ export default () => {
             rel="stylesheet"
             href="https://fonts.googleapis.com/icon?family=Material+Icons"
           />
+          <style>
+            body {
+              background-color: #2d3436;
+              color: #fff;
+            }
+          </style>
           <title>MERN Kickstart</title>
         </head>
         <body>

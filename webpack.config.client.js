@@ -22,15 +22,15 @@ const config = {
         exclude: /node_modules/,
         use: ["babel-loader"],
       },
-      //rules for css
-      {
-        test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
-      },
-      //rules for sass
       {
         test: /\.s[ac]ss$/i,
         use: ["style-loader", "css-loader", "sass-loader"],
+      },
+      //rules for typescript
+      {
+        test: /\.tsx?$/,
+        use: "ts-loader",
+        exclude: /node_modules/,
       },
     ],
   },
