@@ -18,7 +18,7 @@ const rulesForTypeScript = {
 
 const config = {
   mode: "production",
-  entry: [path.join(CURRENT_WORKING_DIR, "client/main.js")],
+  entry: [path.join(CURRENT_WORKING_DIR, "client/main.tsx")],
   output: {
     path: path.join(CURRENT_WORKING_DIR, "/dist"),
     filename: "bundle.js",
@@ -26,6 +26,12 @@ const config = {
   },
   module: {
     rules: [rulesForJavaScript, rulesForCSS, rulesForTypeScript],
+  },
+  resolve: {
+    alias: {
+      "react-dom": "@hot-loader/react-dom",
+    },
+    extensions: [".js", ".jsx", ".ts", ".tsx"],
   },
 };
 
