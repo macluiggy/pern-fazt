@@ -18,5 +18,10 @@ CREATE TABLE tasks (
   status VARCHAR(40)
 );
 
+INSERT INTO tasks (title, description, status) VALUES
+    ('Learn to code', 'Learn to code in a language of your choice', 'todo'),
+    ('Learn to cook', 'Learn to cook in a language of your choice', 'todo'),
+    ('Learn to dance', 'Learn to dance in a language of your choice', 'todo');
+
 --devuelve la fecha actual
 SELECT NOW();

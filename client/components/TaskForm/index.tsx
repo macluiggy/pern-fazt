@@ -10,9 +10,26 @@ import {
 } from "@mui/material";
 
 function TaskForm() {
-  const handleSubmit = (e) => {
+  const [task, setTask] = useState({ title: "", description: "" });
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("submit");
+    // console.log("submit");
+    // console.log(task);
+    const response = await fetch("/api/tasks", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(task),
+    });
+    const data = await response.json();
+    console.log(data);
+  };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    // console.log(name, value);
+    setTask({ ...task, [name]: value }); //[name] is the same as name: value, but this sintax is used to avoid the error of the name being a string; [name] es lo mismo que name: value, pero se usa esta sintaxis para evitar el error de que el nombre sea un string
   };
   return (
     <Grid
@@ -37,16 +54,19 @@ function TaskForm() {
               <TextField
                 variant="filled"
                 label="Write your title"
+                name="title"
                 sx={{
                   display: "block",
                   margin: ".5rem 0",
                 }}
                 inputProps={{ style: { color: "white" } }}
                 InputLabelProps={{ style: { color: "white" } }}
+                onChange={handleChange}
               />
               <TextField
                 variant="filled"
                 label="Write your description"
+                name="description"
                 multiline
                 rows={4}
                 sx={{
@@ -55,6 +75,7 @@ function TaskForm() {
                 }}
                 inputProps={{ style: { color: "white" } }}
                 InputLabelProps={{ style: { color: "white" } }}
+                onChange={handleChange}
               />
 
               <Button variant="contained" color="primary" type="submit">
