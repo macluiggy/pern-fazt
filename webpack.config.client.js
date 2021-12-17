@@ -7,23 +7,6 @@ const rulesForJavaScript = {
   test: /\.jsx?$/,
   exclude: /node_modules/,
   use: ["babel-loader"],
-  // use: {
-  //   loader: "babel-loader",
-  //   options: {
-  //     presets: [["@babel/preset-react", { runtime: "automatic" }]],
-  //   },
-  // },
-  // loader: "babel-loader",
-  // options: {
-  //   presets: [
-  //     [
-  //       "@babel/preset-react",
-  //       {
-  //         runtime: "automatic",
-  //       },
-  //     ],
-  //   ],
-  // },
 };
 const rulesForCSS = {
   test: /\.s[ac]ss$/i,
