@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Button, Card, CardContent, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+
 const TaskList = () => {
   const [tasks, setTasks] = useState([]);
+  const navigate = useNavigate();
 
   const loadTasks = async () => {
     try {
@@ -9,6 +12,17 @@ const TaskList = () => {
       const data = await response.json();
       // console.log(data);
       setTasks(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const handleDelete = async (id) => {
+    try {
+      const res = await fetch(`/api/tasks/${id}`, {
+        method: "DELETE",
+      });
+      loadTasks();
+      // console.log(res);
     } catch (error) {
       console.log(error);
     }
@@ -47,7 +61,7 @@ const TaskList = () => {
               <Button
                 variant="contained"
                 color="inherit"
-                onClick={() => console.log("edit")}
+                onClick={() => navigate(`/tasks/${id}/edit`)}
                 style={{
                   marginRight: ".5rem",
                 }}
@@ -57,7 +71,7 @@ const TaskList = () => {
               <Button
                 variant="contained"
                 color="warning"
-                onClick={() => console.log("delete")}
+                onClick={() => handleDelete(id)}
               >
                 Delete
               </Button>{" "}

@@ -23,9 +23,9 @@ app.use("/dist", express.static(dir));
 // app.get('/', function(req, res) {
 //   res.sendFile(dir);d
 // })
-app.get("/", (req, res) => {
-  res.status(200).send(template());
-});
+// app.get("/", (req, res) => {
+//   res.status(200).send(template());
+// });
 
 app.get("/api/hello", (_, res) => {
   res.json({ hello: "world, jajjaddd" });
@@ -42,6 +42,13 @@ app.use((err, req, res, next) => {
 //using routes
 app.use("/api", indexRoutes);
 app.use("/api", taskRoutes);
+// when the routes load, implement the template
+app.get("*", (req, res) => {
+  res.status(200).send(template());
+});
+// app.get("/", (req, res) => {
+//   res.status(200).send(template());
+// });
 
 let port = process.env.PORT || 3000;
 app.listen(port, () => {

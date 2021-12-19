@@ -12,15 +12,16 @@ const HelloWorld = () => {
     <BrowserRouter>
       <Menu />
       <Container>
-        <Link style={{ textDecoration: "none", color: "#eee" }} to="/tasks/new">
+        {/* <Link style={{ textDecoration: "none", color: "#eee" }} to="/tasks/new">
           new task
         </Link>
         <Link style={{ textDecoration: "none", color: "#eee" }} to="/">
           Home
-        </Link>
+        </Link> */}
         <Routes>
           <Route path="/" element={<TaskList />} />
           <Route path="/tasks/new" element={<TaskForm />} />
+          <Route path="/tasks/:id/edit" element={<TaskForm />}></Route>
         </Routes>
       </Container>
     </BrowserRouter>

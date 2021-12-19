@@ -30,9 +30,6 @@ const config = {
   resolve: {
     extensions: [".js", ".jsx", ".ts", ".tsx"],
   },
-  devServer: {
-    historyApiFallback: true,
-  },
 };
 
 module.exports = config;
