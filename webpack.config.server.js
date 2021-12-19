@@ -4,7 +4,7 @@ const CURRENT_WORKING_DIR = process.cwd();
 
 const config = {
   name: "server",
-  entry: [path.join(CURRENT_WORKING_DIR, "./server/server.ts")],
+  entry: [path.join(CURRENT_WORKING_DIR, "./server/server.js")],
   target: "node",
   output: {
     path: path.join(CURRENT_WORKING_DIR, "/dist/"),
@@ -20,7 +20,6 @@ const config = {
         exclude: /node_modules/,
         use: ["babel-loader"],
       },
-      //rules for typescript
       {
         test: /\.ts$/,
         exclude: /node_modules/,

@@ -120,6 +120,6 @@ export const deeleteTask = async (req, res, next) => {
     // res.json({ Error: errMessage });
     console.log(error);
     if (process.env.NODE_ENV !== "production") return next(error);
-    return res.json({ Error: "Server error (500), please try again" });
+    return res.json({ Error: "Server error (500), please try againd" });
   }
 };

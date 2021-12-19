@@ -5,23 +5,23 @@ import morgan from "morgan";
 // import { MongoClient } from "mongodb";
 import template from "../template.js";
 //comment out before building for production
-// import devBundle from "./devBundle";
+import devBundle from "./devBundle";
 import dotenv from "dotenv";
 dotenv.config();
 
 // routes
 import indexRoutes from "./routes/index.route";
-import taskRoutes from "./routes/task.routes";
+import taskRoutes from "./routes/task.routes.js";
 
 const app = express();
 //comment out before building for production
-// devBundle.compile(app);
+devBundle.compile(app);
 const CURRENT_WORKING_DIR = process.cwd(); //
 let dir = path.join(CURRENT_WORKING_DIR, "dist");
 console.log(dir);
 app.use("/dist", express.static(dir));
 // app.get('/', function(req, res) {
-//   res.sendFile(dir);
+//   res.sendFile(dir);d
 // })
 app.get("/", (req, res) => {
   res.status(200).send(template());
