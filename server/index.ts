@@ -4,14 +4,14 @@ import morgan from "morgan";
 // import cors from "cors";
 // import { MongoClient } from "mongodb";
 import template from "../template.js";
-//comment out before building for production
+//comment out before building for productionf
 import devBundle from "./devBundle";
 import dotenv from "dotenv";
 dotenv.config();
 
 // routes
 import indexRoutes from "./routes/index.route";
-import taskRoutes from "./routes/task.routes.js";
+import taskRoutes from "./routes/task.routes";
 
 const app = express();
 //comment out before building for production
@@ -28,7 +28,7 @@ app.use("/dist", express.static(dir));
 // });
 
 app.get("/api/hello", (_, res) => {
-  res.json({ hello: "world, jajjaddd" });
+  res.json({ hello: "mundo" });
 });
 
 // middlewares

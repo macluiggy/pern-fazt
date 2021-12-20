@@ -4,7 +4,8 @@ const CURRENT_WORKING_DIR = process.cwd();
 
 const config = {
   name: "server",
-  entry: [path.join(CURRENT_WORKING_DIR, "./server/server.js")],
+  entry: [path.join(CURRENT_WORKING_DIR, "./server/index.ts")],
+  devtool: "inline-source-map",
   target: "node",
   output: {
     path: path.join(CURRENT_WORKING_DIR, "/dist/"),
@@ -28,7 +29,7 @@ const config = {
     ],
   },
   resolve: {
-    extensions: [".js", ".jsx", ".ts", ".tsx"],
+    extensions: [".tsx", ".ts", ".js"],
   },
 };
 

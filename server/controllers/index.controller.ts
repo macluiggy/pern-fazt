@@ -3,7 +3,7 @@ import pool from "../database";
 export const getUsers = async (req, res) => {
   try {
     const response = await pool.query("SELECT * FROM users");
-    // console.log(response);
+    // console.log(response);s
     return res.status(200).json(response.rows);
   } catch (error) {
     console.log(error);
