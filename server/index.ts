@@ -11,7 +11,7 @@ dotenv.config();
 
 // routes
 import indexRoutes from "./routes/index.route";
-import taskRoutes from "./routes/task.routes.js";
+import taskRoutes from "./routes/task.routes";
 
 const app = express();
 //comment out before building for production
@@ -28,7 +28,7 @@ app.use("/dist", express.static(dir));
 // });
 
 app.get("/api/hello", (_, res) => {
-  res.json({ hello: "world, jajjaddd" });
+  res.json({ hello: "mundod" });
 });
 
 // middlewares
