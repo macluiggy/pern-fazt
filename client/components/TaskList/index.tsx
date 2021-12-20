@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Card, CardContent, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-
+import "./tasklist.scss";
 const TaskList = () => {
   const [tasks, setTasks] = useState([]);
   const navigate = useNavigate();
@@ -32,7 +32,7 @@ const TaskList = () => {
   }, []);
   return (
     <>
-      <h1>Task list </h1>
+      <h1 className="hello">Task list </h1>
       {tasks.map(({ description, id, status, title }) => (
         <Card
           key={id}
