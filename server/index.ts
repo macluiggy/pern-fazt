@@ -28,7 +28,7 @@ app.use("/dist", express.static(dir));
 // });
 
 app.get("/api/hello", (_, res) => {
-  res.json({ hello: "mundo" });
+  res.json({ hello: "mundod" });
 });
 
 // middlewares
