@@ -14,7 +14,7 @@ import indexRoutes from "./routes/index.route";
 import taskRoutes from "./routes/task.routes";
 
 const app = express();
-//comment out before building for production
+//comment out before building for productions
 devBundle.compile(app);
 const CURRENT_WORKING_DIR = process.cwd(); //
 let dir = path.join(CURRENT_WORKING_DIR, "dist");

@@ -24,7 +24,8 @@ const config = {
       {
         test: /\.ts$/,
         exclude: /node_modules/,
-        use: ["babel-loader", "ts-loader"],
+        use: ["ts-loader"],
+        include: [path.join(CURRENT_WORKING_DIR, "./server")],
       },
     ],
   },
